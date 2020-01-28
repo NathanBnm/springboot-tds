@@ -1,0 +1,13 @@
+{{> /partials/header}}
+<div class="ui bulleted list">
+    {{#items}}
+    <div class="item">
+        {{nom}} - {{evaluation}}
+        <a href="/items/inc/{{nom}}" class="circular mini ui icon button"><i class="plus icon"></i></a>
+        <a href="/items/dec/{{nom}}" class="circular mini ui icon button"><i class="minus icon"></i></a>
+        <a href="/items/delete/{{nom}}" class="circular mini ui icon button"><i class="trash icon"></i></a>
+</div>
+    {{/items}}
+</div>
+<a href="/items/new" class="ui left labeled icon button"><i class="plus icon"></i> Ajouter un élément</a>
+{{> /partials/footer}}
