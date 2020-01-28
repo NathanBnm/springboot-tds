@@ -14,7 +14,7 @@ import org.springframework.test.web.servlet.ResultActions;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class MonPremierPrintempsApplicationTests {
+class Td1ApplicationTests {
 
     @Autowired
     private MockMvc mvc;
