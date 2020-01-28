@@ -1,9 +1,9 @@
 language: java
 cache:
   directories:
-    - '$HOME/.m2/repository/td1'
+    - '$HOME/.m2/repository'
 before_install:
-  - chmod +x ./td1/mvnw
+  - chmod +x mvnw
 script:
-  - ./td1/mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-  - ./td1/mvnw test -B
+  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - ./mvnw test -B
