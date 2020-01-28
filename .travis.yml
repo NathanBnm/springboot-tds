@@ -5,5 +5,5 @@ cache:
 before_install:
   - chmod +x mvnw
 script:
-  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-  - ./mvnw test -B
+  - ./td1/mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - ./td1/mvnw test -B
