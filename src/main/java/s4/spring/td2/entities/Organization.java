@@ -15,7 +15,7 @@ public class Organization {
     
     @OneToMany
     private List<Group> groups;
-    
-    @OneToMany
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
     private List<User> users;
 }

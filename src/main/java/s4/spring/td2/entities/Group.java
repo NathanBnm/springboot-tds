@@ -17,5 +17,6 @@ public class Group {
     private Organization organization;
     
     @ManyToMany
+    @JoinTable(name = "user_group")
     private List<User> users;
 }

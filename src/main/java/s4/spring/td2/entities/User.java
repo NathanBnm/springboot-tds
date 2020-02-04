@@ -17,7 +17,7 @@ public class User {
     
     @ManyToOne
     private Organization organization;
-    
-    @ManyToMany
+
+    @ManyToMany(mappedBy = "users")
     private List<Group> groups;
 }
