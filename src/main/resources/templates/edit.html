@@ -1,0 +1,28 @@
+{{>main/header}}
+<div class="ui icon message">
+    <i class="icon edit"></i>
+    <div class="content">
+        <div class="header">entities\Organization</div>
+        <p>Modification d'un objet existant</p>
+    </div>
+</div>
+<form class="ui form" action="/orgas/edit" method="post">
+    <input type="hidden" id="id" name="id" value="{{id}}">
+    <div class="field">
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" placeholder="Nom" value="{{name}}">
+    </div>
+    <div class="field">
+        <label for="domain">Domaine</label>
+        <input type="text" id="domain" name="domain" placeholder="Domaine" value="{{domain}}">
+    </div>
+    <div class="field">
+        <label for="aliases">Alias</label>
+        <input type="text" id="aliases" name="aliases" placeholder="Alias" value="{{aliases}}">
+    </div>
+    <div class="ui segment">
+        <button class="ui button green" type="submit"><i class="check icon"></i>Valider</button>
+        <a href="/orgas/index" class="ui button"><i class="circle icon"></i>Annuler</a>
+    </div>
+</form>
+{{>main/footer}}
