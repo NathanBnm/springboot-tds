@@ -1,4 +1,5 @@
 {{>main/header}}
+<a href="/orgas/index">
 <h1 class="ui header">
     <i class="envelope icon"></i>
     <span class="content">
@@ -6,6 +7,7 @@
         <span class="sub header">Application de messagerie</span>
     </span>
 </h1>
+</a>
 <div class="ui segment">
     <a href="/orgas/new" class="ui secondary button">
         <i class="icon plus"></i>
@@ -15,7 +17,7 @@
         <thead>
         <tr>
             <th>Id</th>
-            <th>Nome</th>
+            <th>Nom</th>
             <th>Domaine</th>
             <th>Alias</th>
             <th></th>
@@ -29,10 +31,10 @@
             <td data-label="Domaine">{{domain}}</td>
             <td data-label="Alias">{{aliases}}</td>
             <td>
-                <a href="/orgas/display/{{id}}" class="circular ui icon button">
+                <a href="/orgas/display/{{id}}" class="circular ui basic icon button">
                     <i class="icon eye"></i>
                 </a>
-                <a href="/orgas/edit/{{id}}" class="circular ui icon button">
+                <a href="/orgas/edit/{{id}}" class="circular ui basic icon button">
                     <i class="icon edit"></i>
                 </a>
                 <a href="/orgas/delete/{{id}}" class="circular ui inverted red icon button">
@@ -56,15 +58,19 @@
             <th></th>
             <th></th>
             <th>
-                <div class="ui right icon input">
-                    <input id="search" name="search" type="text" placeholder="Rechercher…">
-                    <i class="search icon"></i>
-                </div>
+                <form class="ui form" action="/orgas/search" method="post">
+                    <div class="field">
+                        <div class="ui right icon input">
+                            <input id="search" name="search" type="text" placeholder="Rechercher…">
+                            <i class="search icon"></i>
+                        </div>
+                    </div>
+                </form>
             </th>
         </tr>
         </tfoot>
     </table>
-    {{#id}}
+    {{#delete}}
     <div class="ui icon negative message">
         <i class="question circle icon"></i>
         <div class="content">
@@ -77,6 +83,15 @@
             </form>
         </div>
     </div>
-    {{/id}}
+    {{/delete}}
+    {{#details}}
+    <div>
+        Groupes (...)
+        ...
+        
+        Utilisateurs (...)
+        ...
+    </div>
+    {{/details}}
 </div>
 {{>main/footer}}
