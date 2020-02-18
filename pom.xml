@@ -9,11 +9,19 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>s4.spring</groupId>
+<<<<<<< HEAD
 	<artifactId>original-project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>original-project</name>
 	<description>Original project for Spring Boot</description>
+=======
+	<artifactId>td2</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>td2</name>
+	<description>Gestion de messagerie</description>
+>>>>>>> td2
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -22,6 +30,13 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+<<<<<<< HEAD
+=======
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+>>>>>>> td2
 			<artifactId>spring-boot-starter-mustache</artifactId>
 		</dependency>
 		<dependency>
@@ -36,6 +51,14 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+<<<<<<< HEAD
+=======
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+>>>>>>> td2
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
@@ -51,7 +74,23 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+<<<<<<< HEAD
 	</dependencies>
+=======
+
+        <!-- https://mvnrepository.com/artifact/org.webjars.bowergithub.fomantic/fomantic-ui -->
+        <dependency>
+            <groupId>org.webjars.bowergithub.fomantic</groupId>
+            <artifactId>fomantic-ui</artifactId>
+            <version>2.7.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+    </dependencies>
+>>>>>>> td2
 
 	<build>
 		<plugins>
