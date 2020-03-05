@@ -2,7 +2,7 @@ package s4.spring.td3.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import s4.spring.td3.entities.Organization;
+import s4.spring.td3.models.Organization;
 import s4.spring.td3.repositories.OrgaRepository;
 
 import java.util.List;
