@@ -1,0 +1,56 @@
+{{>vuejs/main/header}}
+<template>
+    <v-data-table :headers="headers"
+                  :items="orgas"
+                  :items-per-page="5"
+                  :footer-props="{'items-per-page-text':'Organisations par page :'}">
+        <template v-slot:top>
+            <v-toolbar flat color=" white">
+                <v-toolbar-title>Organisations</v-toolbar-title>
+                <v-divider class="mx-4" inset vertical></v-divider>
+                <v-spacer></v-spacer>
+                <v-dialog v-model="dialog" max-width="500px">
+                    <template v-slot:activator="{ on }">
+                        <v-btn color="dark" dark class="mb-2" v-on="on">Nouvelle organisation</v-btn>
+                    </template>
+                    <v-card>
+                        <v-card-title>
+                            <span class="headline"><%formTitle%></span>
+                        </v-card-title>
+                        <v-card-text>
+                            <v-container>
+                                <v-text-field v-model="editedItem.name" label="Nom"></v-text-field>
+                                <v-text-field v-model="editedItem.domain" label="Domaine"></v-text-field>
+                                <v-text-field v-model="editedItem.aliases" label="Alias"></v-text-field>
+                            </v-container>
+                        </v-card-text>
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn color="red darken-1" text @click="close">Cancel</v-btn>
+                            <v-btn color="green darken-1" text @click="save">Save</v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-dialog>
+            </v-toolbar>
+        </template>
+        <template v-slot:item="props">
+            <tr>
+                <td><% props.item.id %></td>
+                <td><% props.item.name %></td>
+                <td><% props.item.domain %></td>
+                <td><% props.item.aliases %></td>
+                <td>
+                    <v-icon small @click="editItem(props.item)">mdi-pencil</v-icon>
+                    <v-icon small @click="deleteItem(props.item)">mdi-delete</v-icon>
+                </td>
+            </tr>
+        </template>
+        <template v-slot:no-data>
+            <v-alert text color="info" border="left">
+                Aucune organisation
+            </v-alert>
+        </template>
+    </v-data-table>
+</template>
+{{>vuejs/main/footer}}
+{{{vue}}}

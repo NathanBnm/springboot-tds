@@ -1,0 +1,10 @@
+{{>vuejs/main/header}}
+<div><%message%></div>
+<input v-model="message">
+<input v-model="copy">
+<button @click="doCopy">Copier</button>
+<div v-for="name in names">
+    <%name%>
+</div>
+{{>vuejs/main/footer}}
+{{{vue}}}
