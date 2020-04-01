@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
-import s4.spring.td5.models.History;
-import s4.spring.td5.models.Script;
-import s4.spring.td5.models.User;
+import s4.spring.td5.models.*;
+import s4.spring.td5.repositories.CategoryRepository;
 import s4.spring.td5.repositories.HistoryRepository;
+import s4.spring.td5.repositories.LanguageRepository;
 import s4.spring.td5.repositories.ScriptRepository;
 
 import javax.servlet.http.HttpSession;
@@ -26,13 +26,22 @@ public class ScriptController {
     @Autowired
     HistoryRepository historyRepository;
 
+    @Autowired
+    LanguageRepository languageRepository;
+
+    @Autowired
+    CategoryRepository categoryRepository;
+
     @GetMapping("/script/new")
-    public String newScript(HttpSession session) {
+    public String newScript(ModelMap model, HttpSession session) {
         User connectedUser = (User) session.getAttribute("connectedUser");
-        if (connectedUser != null)
+        if (connectedUser != null) {
+            model.put("categories", categoryRepository.findAll());
+            model.put("languages", languageRepository.findAll());
             return "script/new";
-        else
+        } else {
             return "login";
+        }
     }
 
     @GetMapping("/script/{id}")
@@ -44,6 +53,11 @@ public class ScriptController {
             model.put("title", script.getTitle());
             model.put("description", script.getDescription());
             model.put("content", script.getContent());
+            model.put("category", script.getCategory());
+            model.put("language", script.getLanguage());
+
+            model.put("categories", categoryRepository.findAll());
+            model.put("languages", languageRepository.findAll());
             return "script/edit";
         } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -52,7 +66,15 @@ public class ScriptController {
     }
 
     @PostMapping("/script/submit")
-    public RedirectView submitScript(@RequestParam(required = false) String id, @RequestParam String title, @RequestParam String description, @RequestParam String content, @RequestParam(required = false) String comment, RedirectAttributes attributes, HttpSession session) {
+    public RedirectView submitScript(@RequestParam(required = false) String id,
+                                     @RequestParam String title,
+                                     @RequestParam String description,
+                                     @RequestParam String content,
+                                     @RequestParam Category category,
+                                     @RequestParam Language language,
+                                     @RequestParam(required = false) String comment,
+                                     RedirectAttributes attributes,
+                                     HttpSession session) {
         Script script = null;
         if (!"".equals(title) && !"".equals(description) && !"".equals(content)) {
             User connectedUser = (User) session.getAttribute("connectedUser");
@@ -64,7 +86,7 @@ public class ScriptController {
                     script.setContent(content);
                 }
                 if (script == null) {
-                    script = new Script(title, description, content, new Date(), connectedUser);
+                    script = new Script(title, description, content, new Date(), category, connectedUser, language);
                     attributes.addFlashAttribute("message", "Le script <strong>" + title + "</strong> a bien été ajouté.");
                 } else {
                     attributes.addFlashAttribute("message", "Le script <strong>" + title + "</strong> a bien été modifié.");

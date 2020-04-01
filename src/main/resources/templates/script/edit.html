@@ -38,11 +38,36 @@
                     <textarea id="content" name="content" placeholder="Contenu">{{content}}</textarea>
                 </div>
                 <div class="field">
+                    <label for="category">Catégorie</label>
+                    <select id="category" name="category">
+                        <option disabled selected value="{{category.id}}">{{category.name}}</option>
+                        {{#categories}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/categories}}
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="language">Langage</label>
+                    <select id="language" name="language">
+                        <option disabled selected value="{{language.id}}">{{language.name}}</option>
+                        {{#languages}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/languages}}
+                    </select>
+                </div>
+                <div class="field">
                     <label for="comment">Commentaire</label>
                     <input id="comment" name="comment" placeholder="Commentaire sur les modifications effectuées"
                            type="text">
                 </div>
-                <button class="ui button" type="submit">Enregistrer</button>
+                <button class="ui green labeled icon button" type="submit">
+                    <i class="icon check"></i>
+                    Enregistrer
+                </button>
+                <a class="ui labeled icon button" href="/index">
+                    <i class="icon times"></i>
+                    Annuler
+                </a>
             </div>
         </form>
     </div>

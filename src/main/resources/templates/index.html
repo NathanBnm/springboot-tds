@@ -5,13 +5,21 @@
         <header class="header">
             <h1 class="content">Accueil</h1>
             {{#connected}}
-            <p class="sub header">Vous êtes connecté en tant que {{&identity}} ({{&email}}).</p>
+            <p class="sub header">Vous êtes connecté en tant que {{identity}} ({{email}}).</p>
             {{/connected}}
         </header>
         <div class="ui hidden divider"></div>
-        <a class="ui button" href="/script/new">
+        <a class="ui teal button" href="/script/new">
             <i class="icon plus"></i>
             Ajouter un script
+        </a>
+        <a class="ui orange button" href="/category/new">
+            <i class="icon plus"></i>
+            Ajouter une catégorie
+        </a>
+        <a class="ui blue button" href="/language/new">
+            <i class="icon plus"></i>
+            Ajouter un langage
         </a>
         <div class="ui hidden divider"></div>
         {{#connected}}
@@ -19,6 +27,8 @@
             <thead>
             <tr>
                 <th>Nom</th>
+                <th>Catégorie</th>
+                <th>Langage</th>
                 <th class="right aligned">Action</th>
             </tr>
             </thead>
@@ -26,6 +36,8 @@
             {{#scripts}}
             <tr>
                 <td>{{title}}</td>
+                <td>{{#category}}{{name}}{{/category}}{{^category}}-{{/category}}</td>
+                <td>{{#language}}{{name}}{{/language}}{{^language}}-{{/language}}</td>
                 <td class="right aligned">
                     <a class="circular ui basic icon button" href="/script/{{id}}" title="Modifier">
                         <i class="icon edit"></i>
