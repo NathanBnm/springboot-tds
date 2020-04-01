@@ -1,10 +1,10 @@
-package s4.spring.td5;
+package s4.spring.td6;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Td5ApplicationTests {
+class Td6ApplicationTests {
 
 	@Test
 	void contextLoads() {

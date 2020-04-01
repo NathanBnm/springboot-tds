@@ -1,4 +1,4 @@
-package s4.spring.td5.models;
+package s4.spring.td6.models;
 
 import jdk.nashorn.internal.ir.annotations.Ignore;
 
@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Language {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -16,11 +16,11 @@ public class Language {
     @OneToMany
     private List<Script> scripts;
 
-    public Language() {
+    public Category() {
     }
 
     @Ignore
-    public Language(String name) {
+    public Category(String name) {
         this.name = name;
     }
 

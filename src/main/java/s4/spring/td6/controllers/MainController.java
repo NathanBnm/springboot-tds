@@ -1,12 +1,12 @@
-package s4.spring.td5.controllers;
+package s4.spring.td6.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import s4.spring.td5.models.User;
-import s4.spring.td5.repositories.ScriptRepository;
-import s4.spring.td5.repositories.UserRepository;
+import s4.spring.td6.models.User;
+import s4.spring.td6.repositories.ScriptRepository;
+import s4.spring.td6.repositories.UserRepository;
 
 import javax.servlet.http.HttpSession;
 

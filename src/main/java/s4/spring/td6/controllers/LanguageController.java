@@ -1,4 +1,4 @@
-package s4.spring.td5.controllers;
+package s4.spring.td6.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,36 +7,36 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
-import s4.spring.td5.models.Category;
-import s4.spring.td5.models.User;
-import s4.spring.td5.repositories.CategoryRepository;
+import s4.spring.td6.models.Language;
+import s4.spring.td6.models.User;
+import s4.spring.td6.repositories.LanguageRepository;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class CategoryController {
+public class LanguageController {
     @Autowired
-    CategoryRepository categoryRepository;
+    LanguageRepository languageRepository;
 
-    @GetMapping("/category/new")
-    public String newCategory(HttpSession session) {
+    @GetMapping("/language/new")
+    public String newLanguage(HttpSession session) {
         User connectedUser = (User) session.getAttribute("connectedUser");
         if (connectedUser != null)
-            return "category/new";
+            return "language/new";
         else
             return "login";
     }
 
-    @PostMapping("/category/submit")
-    public RedirectView submitCategory(@RequestParam String name, RedirectAttributes attributes) {
+    @PostMapping("language/submit")
+    public RedirectView submitLanguage(@RequestParam String name, RedirectAttributes attributes) {
         if (!"".equals(name)) {
-            Category category = new Category(name);
-            categoryRepository.saveAndFlush(category);
+            Language language = new Language(name);
+            languageRepository.saveAndFlush(language);
             return new RedirectView("/index");
         } else {
-            attributes.addFlashAttribute("message", "Vous devez renseigner un nom de catégorie");
+            attributes.addFlashAttribute("message", "Vous devez renseigner un nom de langage");
             attributes.addFlashAttribute("messageType", "error");
-            return new RedirectView("/category/new");
+            return new RedirectView("/language/new");
         }
     }
 }

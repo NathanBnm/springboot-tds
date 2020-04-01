@@ -1,4 +1,4 @@
-package s4.spring.td5.models;
+package s4.spring.td6.models;
 
 import jdk.nashorn.internal.ir.annotations.Ignore;
 

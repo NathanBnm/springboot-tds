@@ -9,11 +9,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>iutc3.unicaen.fr</groupId>
-    <artifactId>td5</artifactId>
+    <artifactId>td6</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>td5</name>
-    <description>TD5</description>
+    <name>td6</name>
+    <description>TD6</description>
 
     <properties>
         <java.version>1.8</java.version>

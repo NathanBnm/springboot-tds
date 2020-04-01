@@ -1,13 +1,13 @@
-package s4.spring.td5;
+package s4.spring.td6;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Td5Application {
+public class Td6Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Td5Application.class, args);
+		SpringApplication.run(Td6Application.class, args);
 	}
 
 }

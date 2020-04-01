@@ -1,4 +1,4 @@
-package s4.spring.td5.controllers;
+package s4.spring.td6.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
-import s4.spring.td5.models.*;
-import s4.spring.td5.repositories.CategoryRepository;
-import s4.spring.td5.repositories.HistoryRepository;
-import s4.spring.td5.repositories.LanguageRepository;
-import s4.spring.td5.repositories.ScriptRepository;
+import s4.spring.td6.models.*;
+import s4.spring.td6.repositories.CategoryRepository;
+import s4.spring.td6.repositories.HistoryRepository;
+import s4.spring.td6.repositories.LanguageRepository;
+import s4.spring.td6.repositories.ScriptRepository;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
