@@ -1,4 +1,4 @@
-package iutc3.unicaen.fr.td5;
+package s4.spring.td5;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

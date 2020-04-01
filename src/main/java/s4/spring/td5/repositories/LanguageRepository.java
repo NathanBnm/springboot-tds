@@ -1,7 +1,7 @@
-package iutc3.unicaen.fr.td5.repositories;
+package s4.spring.td5.repositories;
 
-import iutc3.unicaen.fr.td5.models.Language;
 import org.springframework.data.jpa.repository.JpaRepository;
+import s4.spring.td5.models.Language;
 
 import java.util.List;
 

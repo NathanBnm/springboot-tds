@@ -1,4 +1,4 @@
-package iutc3.unicaen.fr.td5.models;
+package s4.spring.td5.models;
 
 import javax.persistence.*;
 import java.util.Date;
