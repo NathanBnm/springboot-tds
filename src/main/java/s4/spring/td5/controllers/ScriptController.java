@@ -37,12 +37,18 @@ public class ScriptController {
 
     @GetMapping("/script/{id}")
     public String editScript(@PathVariable String id, ModelMap model) {
-        Script script = scriptRepository.findById(Integer.parseInt(id));
-        model.put("id", id);
-        model.put("title", script.getTitle());
-        model.put("description", script.getDescription());
-        model.put("content", script.getContent());
-        return "script/edit";
+        try {
+            int scriptId = Integer.parseInt(id);
+            Script script = scriptRepository.findById(scriptId);
+            model.put("id", scriptId);
+            model.put("title", script.getTitle());
+            model.put("description", script.getDescription());
+            model.put("content", script.getContent());
+            return "script/edit";
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return "404";
+        }
     }
 
     @PostMapping("/script/submit")

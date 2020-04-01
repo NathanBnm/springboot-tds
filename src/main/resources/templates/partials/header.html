@@ -16,14 +16,25 @@
                     GESTION DE SCRIPTS
                 </a>
                 <div class="right menu">
-                    <a class="item" href="/login">
-                        <i class="icon sign in alternate"></i>
-                        Se connecter
-                    </a>
-                    <a class="ui item" href="/logout">
-                        <i class="icon sign out alternate"></i>
-                        Se déconnecter
-                    </a>
+                    <div class="item">
+                        {{#connected}}
+                        <div class="ui left labeled button" tabindex="0">
+                            <a class="ui basic label">
+                                {{&identity}}
+                            </a>
+                            <a class="ui button" href="/logout">
+                                <i class="icon sign out alternate"></i>
+                                Se déconnecter
+                            </a>
+                        </div>
+                        {{/connected}}
+                        {{^connected}}
+                        <a class="ui button" href="/login">
+                            <i class="icon sign in alternate"></i>
+                            Se connecter
+                        </a>
+                        {{/connected}}
+                    </div>
                 </div>
             </div>
         </div>

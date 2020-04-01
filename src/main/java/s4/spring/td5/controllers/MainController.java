@@ -17,8 +17,11 @@ public class MainController {
     @RequestMapping(value = {"", "/", "index"})
     public String index(ModelMap model, HttpSession session) {
         User connectedUser = (User) session.getAttribute("connectedUser");
-        if (connectedUser != null)
-            model.put("userInfo", "Vous êtes connecté en tant que " + connectedUser.getIdentity() + ".");
+        if (connectedUser != null) {
+            model.put("connected", true);
+            model.put("identity", connectedUser.getIdentity());
+            model.put("email", connectedUser.getEmail());
+        }
         return "index";
     }
 }

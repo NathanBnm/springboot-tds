@@ -4,9 +4,9 @@
     <div class="column">
         <header class="header">
             <h1 class="content">Accueil</h1>
-            {{#userInfo}}
-            <p class="sub header">{{userInfo}}</p>
-            {{/userInfo}}
+            {{#connected}}
+            <p class="sub header">Vous êtes connecté en tant que {{&identity}} ({{&email}}).</p>
+            {{/connected}}
         </header>
         <div class="ui hidden divider"></div>
         <a class="ui button" href="/script/new">
