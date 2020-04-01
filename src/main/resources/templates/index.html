@@ -13,6 +13,39 @@
             <i class="icon plus"></i>
             Ajouter un script
         </a>
+        <div class="ui hidden divider"></div>
+        {{#connected}}
+        <table class="ui table">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th class="right aligned">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#scripts}}
+            <tr>
+                <td>{{title}}</td>
+                <td class="right aligned">
+                    <a class="circular ui basic icon button" href="/script/{{id}}" title="Modifier">
+                        <i class="icon edit"></i>
+                    </a>
+                </td>
+            </tr>
+            {{/scripts}}
+            {{^scripts}}
+            <tr>
+                <td colspan="2">
+                    Aucun script
+                </td>
+            </tr>
+            {{/scripts}}
+            </tbody>
+        </table>
+        {{/connected}}
+        {{^connected}}
+        <p>Connectez-vous pour avoir accès à la liste de vos scripts.</p>
+        {{/connected}}
     </div>
 </div>
 {{> partials/footer}}
