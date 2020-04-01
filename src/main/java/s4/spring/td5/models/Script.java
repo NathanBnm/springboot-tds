@@ -33,11 +33,12 @@ public class Script {
     }
 
     @Ignore
-    public Script(String title, String description, String content, Date creationDate) {
+    public Script(String title, String description, String content, Date creationDate, User user) {
         this.title = title;
         this.description = description;
         this.content = content;
         this.creationDate = creationDate;
+        this.user = user;
     }
 
     public String getTitle() {

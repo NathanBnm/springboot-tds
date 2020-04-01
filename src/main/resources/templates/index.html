@@ -1,11 +1,18 @@
 {{> partials/header}}
 <div class="row"></div>
 <div class="row">
-    <header class="header">
-        <h1 class="content">Accueil</h1>
-        {{#message}}
-        <p class="sub header">{{message}}</p>
-        {{/message}}
-    </header>
+    <div class="column">
+        <header class="header">
+            <h1 class="content">Accueil</h1>
+            {{#userInfo}}
+            <p class="sub header">{{userInfo}}</p>
+            {{/userInfo}}
+        </header>
+        <div class="ui hidden divider"></div>
+        <a class="ui button" href="/script/new">
+            <i class="icon plus"></i>
+            Ajouter un script
+        </a>
+    </div>
 </div>
 {{> partials/footer}}

@@ -18,7 +18,7 @@ public class MainController {
     public String index(ModelMap model, HttpSession session) {
         User connectedUser = (User) session.getAttribute("connectedUser");
         if (connectedUser != null)
-            model.put("message", "Vous êtes connecté en tant que " + connectedUser.getIdentity() + ".");
+            model.put("userInfo", "Vous êtes connecté en tant que " + connectedUser.getIdentity() + ".");
         return "index";
     }
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 import s4.spring.td5.models.User;
 import s4.spring.td5.repositories.UserRepository;
@@ -26,7 +27,7 @@ public class LoginController {
     }
 
     @PostMapping("/doLogin")
-    public RedirectView doLogin(@RequestParam String login, @RequestParam String password, HttpSession session) {
+    public RedirectView doLogin(@RequestParam String login, @RequestParam String password, RedirectAttributes attributes, HttpSession session) {
         if (!"".equals(login) && !"".equals(password)) {
             User user = userRepository.findByLogin(login);
             if (user != null) {
@@ -34,12 +35,18 @@ public class LoginController {
                     session.setAttribute("connectedUser", user);
                     return new RedirectView("/index");
                 } else {
+                    attributes.addFlashAttribute("message", "Identifiants incorrects.");
+                    attributes.addFlashAttribute("messageType", "error");
                     return new RedirectView("/login");
                 }
             } else {
+                attributes.addFlashAttribute("message", "Cet utilisateur n'existe pas.");
+                attributes.addFlashAttribute("messageType", "error");
                 return new RedirectView("/login");
             }
         } else {
+            attributes.addFlashAttribute("message", "Tous les champs n'ont pas été remplis.");
+            attributes.addFlashAttribute("messageType", "error");
             return new RedirectView("/login");
         }
     }

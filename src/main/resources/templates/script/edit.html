@@ -15,7 +15,7 @@
 <div class="row">
     <div class="column">
         <header class="header">
-            <h1 class="content">Ajouter un script</h1>
+            <h1 class="content">Modifier un script</h1>
         </header>
     </div>
 </div>
@@ -23,17 +23,24 @@
     <div class="column">
         <form action="/script/submit" class="ui form" method="POST">
             <div class="content">
+                <input name="id" type="hidden" value="{{id}}">
                 <div class="field">
                     <label for="title">Nom</label>
-                    <input id="title" name="title" placeholder="Nom" type="text">
+                    <input id="title" name="title" placeholder="Nom" type="text" value="{{title}}">
                 </div>
                 <div class="field">
                     <label for="description">Description</label>
-                    <input id="description" name="description" placeholder="Description" type="text">
+                    <input id="description" name="description" placeholder="Description" type="text"
+                           value="{{description}}">
                 </div>
                 <div class="field">
                     <label for="content">Contenu</label>
-                    <textarea id="content" name="content" placeholder="Contenu"></textarea>
+                    <textarea id="content" name="content" placeholder="Contenu">{{content}}</textarea>
+                </div>
+                <div class="field">
+                    <label for="comment">Commentaire</label>
+                    <input id="comment" name="comment" placeholder="Commentaire sur les modifications effectuées"
+                           type="text">
                 </div>
                 <button class="ui button" type="submit">Enregistrer</button>
             </div>
