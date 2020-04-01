@@ -1,6 +1,11 @@
 {{> partials/header}}
 <div class="row"></div>
 <div class="row">
-    <h1 class="header">Accueil</h1>
+    <header class="header">
+        <h1 class="content">Accueil</h1>
+        {{#message}}
+        <p class="sub header">{{message}}</p>
+        {{/message}}
+    </header>
 </div>
 {{> partials/footer}}
