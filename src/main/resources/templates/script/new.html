@@ -1,0 +1,39 @@
+{{> partials/header}}
+<div class="row"></div>
+<div class="row">
+    <form action="/script/submit" class="ui form centered card twelve wide column" method="POST">
+        <div class="content">
+            <h1 class="header">Nouveau script</h1>
+        </div>
+        <div class="content">
+            {{#error}}
+            <div class="ui negative message">
+                <i class="close icon"></i>
+                <div class="header">
+                    {{error}}
+                </div>
+            </div>
+            {{/error}}
+            <div class="field">
+                <label for="title">Nom</label>
+                <input id="title" name="title" placeholder="Nom" type="text">
+            </div>
+            <div class="field">
+                <label for="description">Description</label>
+                <input id="description" name="description" placeholder="Description" type="text">
+            </div>
+            <div class="field">
+                <label for="content">Contenu</label>
+                <textarea id="content" name="content" placeholder="Contenu" type="text"></textarea>
+            </div>
+            <div class="field">
+                <label for="creationDate">Date</label>
+                <input id="creationDate" name="creationDate" placeholder="Sélectionner une date" type="date">
+            </div>
+            <div class="extra content">
+                <button class="ui button" type="submit">Enregistrer</button>
+            </div>
+        </div>
+    </form>
+</div>
+{{> partials/footer}}
