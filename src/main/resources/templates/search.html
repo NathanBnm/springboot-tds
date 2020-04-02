@@ -1,0 +1,38 @@
+{{> partials/header}}
+<v-app class="sixteen wide column">
+    <v-content>
+        <v-container fluid>
+            <template>
+                <v-text-field
+                        append-icon="search"
+                        hide-details
+                        label="Rechercher"
+                        single-line
+                        v-model="search">
+                </v-text-field>
+                <v-data-table :footer-props="{'items-per-page-text':'Scripts par page :'}"
+                              :headers="headers"
+                              :items="scripts"
+                              :items-per-page="5"
+                              :search="search">
+                    <template v-slot:item="props">
+                        <tr>
+                            <td><% props.item.title %></td>
+                            <td><% props.item.category %></td>
+                            <td><% props.item.language %></td>
+                        </tr>
+                    </template>
+                    <template v-slot:no-data>
+                        <tr>
+                            <td colspan="5">
+                                Aucun script
+                            </td>
+                        </tr>
+                    </template>
+                </v-data-table>
+            </template>
+        </v-container>
+    </v-content>
+</v-app>
+{{> partials/footer}}
+{{{vue}}}
