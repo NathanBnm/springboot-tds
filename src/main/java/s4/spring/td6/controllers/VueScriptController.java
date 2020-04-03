@@ -22,11 +22,16 @@ public class VueScriptController {
     public String searchView(ModelMap model) {
         String rest = "/rest/scripts";
         List<Script> scripts = scriptRepository.findAll();
-        vue.addDataRaw("headers", "[" +
+        String headers = ("[" +
                 "{text: 'Nom', value: 'title'}," +
+                "{text: 'Description', value: 'description'}," +
+                "{text: 'Contenu', value: 'content'}," +
                 "{text: 'Catégorie', value: 'category'}," +
                 "{text: 'Langage', value: 'language'}" +
                 "]");
+        vue.addDataRaw("headers", headers);
+        vue.addDataRaw("selectedHeaders", headers);
+        vue.addDataRaw("checkedColumns", "['name', 'description', 'content', 'category', 'language']");
         vue.addData("scripts", scripts);
         vue.addData("search", "");
         model.put("vue", this.vue);

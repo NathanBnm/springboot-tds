@@ -10,16 +10,30 @@
                         single-line
                         v-model="search">
                 </v-text-field>
+                <input id="name" type="checkbox" v-model="checkedColumns" value="name">
+                <label for="name">Nom</label>
+                <input id="description" type="checkbox" v-model="checkedColumns" value="description">
+                <label for="description">Description</label>
+                <input id="content" type="checkbox" v-model="checkedColumns" value="content">
+                <label for="content">Contenu</label>
+                <input id="category" type="checkbox" v-model="checkedColumns" value="category">
+                <label for="category">Catégorie</label>
+                <input id="language" type="checkbox" v-model="checkedColumns" value="language">
+                <label for="language">Language</label>
+                <br>
+                <span>Checked : <% checkedColumns %></span>
                 <v-data-table :footer-props="{'items-per-page-text':'Scripts par page :'}"
-                              :headers="headers"
+                              :headers="selectedHeaders"
                               :items="scripts"
                               :items-per-page="5"
                               :search="search">
                     <template v-slot:item="props">
                         <tr>
                             <td><% props.item.title %></td>
-                            <td><% props.item.category %></td>
-                            <td><% props.item.language %></td>
+                            <td><% props.item.description %></td>
+                            <td><% props.item.content %></td>
+                            <td><% props.item.category.name %></td>
+                            <td><% props.item.language.name %></td>
                         </tr>
                     </template>
                     <template v-slot:no-data>
