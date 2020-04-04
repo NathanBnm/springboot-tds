@@ -12,6 +12,10 @@ TODO
 ## Déploiement
 
 [Accessible sur Heroku](https://spring-evaluation-nb.herokuapp.com/)
+Les identifiants de connexion sont (vous pouvez enregistrer la session pour les sauvegarder) :
+
+Identifiant : NathanBnm
+Mot de passe : azerty
 
 ## Installation
 
