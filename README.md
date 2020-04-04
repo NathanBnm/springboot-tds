@@ -7,7 +7,22 @@ Création d'une application de gestion de scripts avec le framework Web MVC Java
 
 ## Fonctionnalités
 
-TODO
+Connexion
+* [X] Se connecter
+
+Scripts
+* [X] Ajouter un script
+* [X] Modifier un script
+
+Catégories
+* [X] Ajouter une catégorie
+
+Langages
+* [X] Ajouter un langage
+
+Recherche
+* [X] Rechercher un script
+* [X] Filtrer les colonnes à afficher/recharger
 
 ## Déploiement
 
@@ -19,4 +34,7 @@ Mot de passe : azerty
 
 ## Installation
 
-TODO
+1. Cloner le dépôt
+2. Ouvrir le projet avec IntelliJ IDEA
+3. Lancer l'application en tant que projet SpringBoot
+4. L'application devrait être disponible sur localhost:8080 mais le port peut être modifié dans le fichiers applications.properties
