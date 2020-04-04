@@ -10,20 +10,34 @@
                         single-line
                         v-model="search">
                 </v-text-field>
-                <input id="name" type="checkbox" v-model="checkedColumns" value="name">
-                <label for="name">Nom</label>
-                <input id="description" type="checkbox" v-model="checkedColumns" value="description">
-                <label for="description">Description</label>
-                <input id="content" type="checkbox" v-model="checkedColumns" value="content">
-                <label for="content">Contenu</label>
-                <input id="category" type="checkbox" v-model="checkedColumns" value="category">
-                <label for="category">Catégorie</label>
-                <input id="language" type="checkbox" v-model="checkedColumns" value="language">
-                <label for="language">Language</label>
+                <div class="ui checkbox">
+                    <input @click="hideTitleToggle" id="title" type="checkbox" v-model="checkedColumns" value="title">
+                    <label for="title">Nom</label>
+                </div>
+                <div class="ui checkbox">
+                    <input @click="hideDescriptionToggle" id="description" type="checkbox" v-model="checkedColumns"
+                           value="description">
+                    <label for="description">Description</label>
+                </div>
+                <div class="ui checkbox">
+                    <input @click="hideContentToggle" id="content" type="checkbox" v-model="checkedColumns"
+                           value="content">
+                    <label for="content">Contenu</label>
+                </div>
+                <div class="ui checkbox">
+                    <input @click="hideCategoryToggle" id="category" type="checkbox" v-model="checkedColumns"
+                           value="category">
+                    <label for="category">Catégorie</label>
+                </div>
+                <div class="ui checkbox">
+                    <input @click="hideLanguageToggle" id="language" type="checkbox" v-model="checkedColumns"
+                           value="language">
+                    <label for="language">Language</label>
+                </div>
                 <br>
-                <span>Checked : <% checkedColumns %></span>
+                <p>Séléctionné : <% checkedColumns %></p>
                 <v-data-table :footer-props="{'items-per-page-text':'Scripts par page :'}"
-                              :headers="selectedHeaders"
+                              :headers="computedHeaders"
                               :items="scripts"
                               :items-per-page="5"
                               :search="search">
@@ -38,7 +52,7 @@
                     </template>
                     <template v-slot:no-data>
                         <tr>
-                            <td colspan="5">
+                            <td :colspan="colspan">
                                 Aucun script
                             </td>
                         </tr>

@@ -22,18 +22,36 @@ public class VueScriptController {
     public String searchView(ModelMap model) {
         String rest = "/rest/scripts";
         List<Script> scripts = scriptRepository.findAll();
-        String headers = ("[" +
+
+        vue.addData("hideTitle", false);
+        vue.addData("hideDescription", false);
+        vue.addData("hideContent", false);
+        vue.addData("hideCategory", false);
+        vue.addData("hideLanguage", false);
+
+        vue.addData("search", "");
+        vue.addDataRaw("checkedColumns", "['name', 'description', 'content', 'category', 'language']");
+
+        vue.addDataRaw("headers", "[" +
                 "{text: 'Nom', value: 'title'}," +
                 "{text: 'Description', value: 'description'}," +
                 "{text: 'Contenu', value: 'content'}," +
                 "{text: 'Catégorie', value: 'category'}," +
                 "{text: 'Langage', value: 'language'}" +
                 "]");
-        vue.addDataRaw("headers", headers);
-        vue.addDataRaw("selectedHeaders", headers);
-        vue.addDataRaw("checkedColumns", "['name', 'description', 'content', 'category', 'language']");
+
         vue.addData("scripts", scripts);
-        vue.addData("search", "");
+
+        vue.addComputed("computedHeaders", "return this.hideTitle ? this.headers.filter(header => header.value !== 'title') : this.headers;");
+
+        vue.addComputed("colspan", "return this.headers.length;");
+
+        vue.addMethod("hideTitleToggle", "this.hideTitle = !this.hideTitle");
+        vue.addMethod("hideDescriptionToggle", "this.hideDescription = !this.hideDescription");
+        vue.addMethod("hideContentToggle", "this.hideContent = !this.hideContent");
+        vue.addMethod("hideCategoryToggle", "this.hideCategory = !this.hideCategory");
+        vue.addMethod("hideLanguageToggle", "this.hideLanguage = !this.hideLanguage");
+
         model.put("vue", this.vue);
         return "search";
     }
