@@ -1,10 +1,14 @@
 package s4.spring.td6.controllers;
 
 import io.github.jeemv.springboot.vuejs.VueJS;
+import io.github.jeemv.springboot.vuejs.utilities.Http;
+import io.github.jeemv.springboot.vuejs.utilities.JsArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import s4.spring.td6.repositories.CategoryRepository;
+import s4.spring.td6.repositories.LanguageRepository;
 import s4.spring.td6.repositories.ScriptRepository;
 
 @Controller
@@ -19,6 +23,7 @@ public class VueScriptController {
     public String searchView(ModelMap model) {
         String rest = "/rest/scripts";
 
+        vue.addDataRaw("selectedHeaders", "['title', 'description', 'content', 'category.name', 'language.name']");
         vue.addDataRaw("headers", "[" +
                 "{text: 'Nom', value: 'title'}," +
                 "{text: 'Description', value: 'description'}," +
@@ -26,7 +31,6 @@ public class VueScriptController {
                 "{text: 'Catégorie', value: 'category.name'}," +
                 "{text: 'Langage', value: 'language.name'}" +
                 "]");
-        vue.addDataRaw("selectedHeaders", "['title', 'description', 'content', 'category.name', 'language.name']");
 
         vue.addData("search", "");
         vue.addData("scripts", scriptRepository.findAll());

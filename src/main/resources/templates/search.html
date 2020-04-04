@@ -3,40 +3,54 @@
     <v-content>
         <v-container fluid>
             <template>
-                <v-text-field
-                        append-icon="search"
-                        hide-details
-                        label="Rechercher"
-                        single-line
-                        v-model="search">
-                </v-text-field>
-                <div class="ui hidden divider"></div>
-                <div class="ui checkbox">
-                    <input id="title" type="checkbox" v-model="selectedHeaders" value="title">
-                    <label for="title">Nom</label>
-                </div>
-                <div class="ui checkbox">
-                    <input id="description" type="checkbox" v-model="selectedHeaders" value="description">
-                    <label for="description">Description</label>
-                </div>
-                <div class="ui checkbox">
-                    <input id="content" type="checkbox" v-model="selectedHeaders" value="content">
-                    <label for="content">Contenu</label>
-                </div>
-                <div class="ui checkbox">
-                    <input id="category" type="checkbox" v-model="selectedHeaders" value="category.name">
-                    <label for="category">Catégorie</label>
-                </div>
-                <div class="ui checkbox">
-                    <input id="language" type="checkbox" v-model="selectedHeaders" value="language.name">
-                    <label for="language">Langage</label>
-                </div>
-                <div class="ui hidden divider"></div>
                 <v-data-table :footer-props="{'items-per-page-text':'Scripts par page :'}"
                               :headers="computedHeaders"
                               :items="scripts"
                               :items-per-page="5"
                               :search="search">
+                    <template v-slot:top>
+                        <v-toolbar flat color="white">
+                            <v-toolbar-title>Scripts</v-toolbar-title>
+                            <v-divider class="mx-4" inset vertical></v-divider>
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                    append-icon="search"
+                                    hide-details
+                                    label="Rechercher"
+                                    single-line
+                                    v-model="search">
+                            </v-text-field>
+                        </v-toolbar>
+                        <v-toolbar flat color="white">
+                            <v-spacer></v-spacer>
+                            <div class="ui checkbox">
+                                <input id="title" type="checkbox" v-model="selectedHeaders" value="title">
+                                <label for="title">Nom</label>
+                            </div>
+                            <v-spacer></v-spacer>
+                            <div class="ui checkbox">
+                                <input id="description" type="checkbox" v-model="selectedHeaders"
+                                       value="description">
+                                <label for="description">Description</label>
+                            </div>
+                            <v-spacer></v-spacer>
+                            <div class="ui checkbox">
+                                <input id="content" type="checkbox" v-model="selectedHeaders" value="content">
+                                <label for="content">Contenu</label>
+                            </div>
+                            <v-spacer></v-spacer>
+                            <div class="ui checkbox">
+                                <input id="category" type="checkbox" v-model="selectedHeaders" value="category.name">
+                                <label for="category">Catégorie</label>
+                            </div>
+                            <v-spacer></v-spacer>
+                            <div class="ui checkbox">
+                                <input id="language" type="checkbox" v-model="selectedHeaders" value="language.name">
+                                <label for="language">Langage</label>
+                            </div>
+                            <v-spacer></v-spacer>
+                        </v-toolbar>
+                    </template>
                     <template v-slot:item="props">
                         <tr>
                             <td v-if="selectedHeaders.includes('title')"><% props.item.title %></td>
