@@ -11,7 +11,7 @@
     <groupId>iutc3.unicaen.fr</groupId>
     <artifactId>td6</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>td6</name>
     <description>TD6</description>
 
